@@ -18,17 +18,17 @@ const mouse = {
     x: undefined,
     y: undefined,
 }
-canvas.addEventListener('click', function (event) {
-    mouse.x = event.x
-    mouse.y = event.y
-    for (let i = 0; i < 10; i++) {
-        particlesArray.push(new Particle());
+// canvas.addEventListener('click', function (event) {
+//     mouse.x = event.x
+//     mouse.y = event.y
+//     for (let i = 0; i < 10; i++) {
+//         particlesArray.push(new Particle());
 
-    }
-    // Allows global update of mouse location based on click event
+//     }
+//     // Allows global update of mouse location based on click event
 
-    console.log(mouse)
-})
+//     console.log(mouse)
+// })
 
 canvas.addEventListener('mousemove', function (event) {
     mouse.x = event.x
@@ -90,7 +90,8 @@ function handleParticles() {
             const dx = particlesArray[i].x - particlesArray[j].x;
             const dy = particlesArray[i].y - particlesArray[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy)
-            if (distance < 100) {
+            // Pythagorean theorem 
+            if (distance < 90) {
                 ctx.beginPath();
                 ctx.strokeStyle = particlesArray[i].color
                 ctx.lineWidth = 3
@@ -101,19 +102,17 @@ function handleParticles() {
         }
         if (particlesArray[i].size <= 0.3) {
             particlesArray.splice(i, 1);
-            console.log(particlesArray.length)
             i--;
         }
     }
 }
-console.log(particlesArray)
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillStyle = "rgba(0,0,0,0.05)";
     // ctx.fillRect(0, 0, canvas.width, canvas.height);
     // Adding Trails
     handleParticles();
-    hue += 1.5;
+    hue += 1;
     requestAnimationFrame(animate);
 }
 
