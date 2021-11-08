@@ -3,11 +3,12 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let particlesArray = [];
-const numberOfParticles = 50;
+const numberOfParticles = 45;
 let hue = 0;
 
 let titleElement = document.getElementById('title1');
 let titleMeasurements = titleElement.getBoundingClientRect();
+// Getting the location of the title
 let title = {
     x: titleMeasurements.left,
     y: titleMeasurements.top,
@@ -15,11 +16,12 @@ let title = {
     height: 10,
 }
 
+
 class Particle {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = 30;
+        this.size = 28;
         this.weight = Math.random() * 1 + 1;
         this.directionX = Math.random() * -3 + 1;
         this.color = 'hsl(' + hue + ',100%, 50%)'
@@ -44,7 +46,7 @@ class Particle {
     }
     draw() {
         ctx.fillStyle = this.color;
-        ctx.shadowColor = 'gray';
+        ctx.shadowColor = 'darkgray';
         ctx.shadowBlur = 4;
         ctx.shadowOffsetX = 6;
         ctx.shadowOffsetY = 6;
@@ -63,7 +65,7 @@ function init() {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
         particlesArray.push(new Particle(x, y))
-        hue += 20
+        hue += 50
 
     }
 }
