@@ -112,14 +112,19 @@ class Particle {
         this.y += this.weight;
     }
     draw() {
-        ctx.fillStyle = 'lightblue';
+        let gradient = ctx.createLinearGradient(0, 0, 0, 650);
+        gradient.addColorStop(0, '#f486fa');
+        gradient.addColorStop(0.55, '#8faaf6');
+        gradient.addColorStop(1, '#26cff1');
+
+        ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
         ctx.fill();
     }
 }
 const particleArray = [];
-const numberOfParticles = 120;
+const numberOfParticles = 130;
 function createParticles() {
     for (let i = 0; i < numberOfParticles; i++) {
         const x = (Math.random() * 60) + 200;
