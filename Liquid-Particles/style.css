@@ -5,6 +5,7 @@
     position: absolute;
     width: calc(100% - 400px);
     margin-top: 150px;
+    
 }
 
 nav{
@@ -12,6 +13,7 @@ nav{
     margin-left: 142px;
     z-index: 50;
     position: absolute;
+    
 }
 button {
     width: 100%;
