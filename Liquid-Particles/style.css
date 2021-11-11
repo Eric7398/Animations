@@ -4,10 +4,9 @@
 .container{
     position: absolute;
     width: calc(100% - 400px);
-}
-.content{
     margin-top: 150px;
 }
+
 nav{
     width: 200px;
     margin-left: 142px;
@@ -114,4 +113,5 @@ canvas{
     position: absolute;
     top: 0;
     left: 0;
+    filter: url('#goo');
 }
